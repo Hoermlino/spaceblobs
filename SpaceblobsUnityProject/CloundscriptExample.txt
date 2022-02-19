@@ -1,0 +1,16 @@
+handlers.getPlayerInventory = function(args, context)
+{
+    var playerInventory = server.GetUserInventory(
+    {
+        PlayFabId: currentPlayerId
+    });
+        var ItemIDs = [];
+    for (var i in playerInventory.Inventory)
+    {
+        var ItemId = playerInventory.Inventory[i].ItemId;
+        ItemIDs.push( { "ItemId" : ItemId } );
+    }
+ 
+ 
+    return { ItemIDs : ItemIDs};
+}
